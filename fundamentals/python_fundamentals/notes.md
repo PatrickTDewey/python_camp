@@ -1,2 +1,0 @@
-#   WARNING: The scripts jupyter, jupyter-migrate and jupyter-troubleshoot are installed in '/home/gecko/.local/bin' which is not on PATH.
-#   Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
