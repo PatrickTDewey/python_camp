@@ -1,3 +1,4 @@
+import random
 # Single Line Comments Are made like this
 """
 Multi-Line Comments
@@ -122,14 +123,145 @@ Bonus section
 # print(fruit)
 """
     Traceback (most recent call last):
-    File "/home/gecko/coding/python/fundamentals/python_fundamentals/file.py", line 121, in <module>
+    File  line 121, in <module>
     fruit.append('raspberry')
     AttributeError: 'tuple' object has no attribute 'append'
 """
 # fruit.pop(1)
 """
     Traceback (most recent call last):
-    File "/home/gecko/coding/python/fundamentals/python_fundamentals/file.py", line 129, in <module>
+    File line 129, in <module>
     fruit.pop(1)
     AttributeError: 'tuple' object has no attribute 'pop'
 """
+
+xy = 50
+if xy > 50:
+    print('Greater Than 50')
+else:
+    print('Less Than or Equal to 50')
+
+#class throwError:
+"""
+    File  line 146
+        class EmptyClass:
+        ^
+    IndentationError: expected an indented block
+"""
+
+class EmptyClass:
+    pass # Pass used when we know we are going to want a code block to do something but don't know what we want it to do yet. 
+
+ishungry = True
+has_freckles = False
+
+age = 28 #stores int
+weight = 185.3 #stores float
+name_two = 'SomeWeirdStringyName' #stores string
+immutable_data_type = ('This', 'Tuple', 'Is', 'Immutable', 4)
+for x in immutable_data_type:
+    print(x)
+
+empty_list = []
+ninjas = ['Rozen', 'KB', 'Oliver']
+print(ninjas[2]) 	# output: Oliver
+ninjas[0] = 'Francis'
+ninjas.append('Michael')
+print(ninjas)	# output: ['Francis', 'KB', 'Oliver', 'Michael']
+ninjas.pop()
+print(ninjas)	# output: ['Francis', 'KB', 'Oliver']
+ninjas.pop(1)
+print(ninjas)	# output: ['Francis', 'Oliver']
+
+print(type(3j))
+
+int_to_float = float(35)
+float_to_int = int(44.2)
+int_to_complex = complex(35)
+print(int_to_float)
+print(float_to_int)
+print(int_to_complex)
+print(type(int_to_float))
+print(type(float_to_int))
+print(type(int_to_complex))
+print(random.randint(2,5))
+
+name = "Zen"
+my_int = 4
+print("My name is", name)
+print('My name is ' + name)
+print('My int is', my_int)
+# print('My int is ' + my_int)
+"""
+    Traceback (most recent call last):
+    File "/home/gecko/coding/python/fundamentals/python_fundamentals/file.py", line 194, in <module>
+    print('My int is ' + my_int)
+    TypeError: can only concatenate str (not "int") to str
+"""
+# Type Casting or Type Conversion
+#print("Hello" + 42)			    # output: TypeError
+print("Hello " + str(42))		    # output: Hello 42
+
+total = 35
+user_val = "26"
+# total = total + user_val		# output: TypeError
+total = total + int(user_val)		# total will be 61
+
+# String Interpolation
+first_name_one = "Zen"
+last_name_one = "Coder"
+age_one = 27
+print(f"My name is {first_name_one} {last_name_one} and I am {age_one} years old.")
+
+# Old format method
+
+print("My name is {} {} and I am {} years old.".format(first_name_one, last_name_one, age_one))
+# output: My name is Zen Coder and I am 27 years old.
+print("My name is {} {} and I am {} years old.".format(age_one, first_name_one, last_name_one))
+# output: My name is 27 Zen and I am Coder years old.
+
+# % Formatting
+hw = "Hello %s" % "world" 	# with string
+py = "I love Python %d" % 3.222 #with int value (this only returns 3)
+print(hw, py)
+# output: Hello world I love Python 3
+
+print("My name is %s and I'm %d" % (first_name_one, age_one))		# or with variables
+# output: My name is Zen and I'm 27
+
+string_to_play_with = 'The slow black dog jumps over the lazy brown fox slow did I say slow'
+print(string_to_play_with.title()) #Capitalizes the first character in word
+print(string_to_play_with.upper()) #Uppercase all the WORDS
+print(string_to_play_with.lower()) #lowercases them
+print(string_to_play_with.count('slow')) # counts all occurences of substrings in a string returns the number
+print(string_to_play_with.split('b')) # Rerturns a list of values where string is split at given character, default = space
+print(string_to_play_with.split()) # Rerturns a list of values where string is split at given character, default = space
+print(string_to_play_with.find('black')) # returns the index of the start of the first occuence of substring within string.
+print(string_to_play_with.isalnum()) # returns bool if every character (spaces included) return alpha numeric symbols --> spaces & punctuation will return false
+# .isdigit() islower() isupper() .isalpha() are similar methods
+print(string_to_play_with.join(ninjas)) # returns a string that is all string within our set in this case the list ninjas
+print(string_to_play_with.endswith('slow')) # returns a boolean based on whether the last characters of string match substring
+
+
+list_to_mess_with = [1, 'cheese', 'broccoli', True, ('tuple', 'in', 'list'), {'dict': 'in_list', 'true/false': True}]
+
+for x, element in enumerate(list_to_mess_with, start=10):
+    print(x, element)
+
+li = [1, 8, 3, 5, 4, 6, 7, 2, 9, 10]
+
+def func(x):
+    return x**x
+print(list(map(func, li)))
+print([func(x) for x in li if x % 2 == 0])
+# newList = []
+# for x in li:
+#     newList.append(func(x))
+
+# print(newList)
+print(min(li))
+print(sorted(li))
+# print(sorted(list_to_mess_with))
+list_to_mess_with.extend(li)
+print(list_to_mess_with)
+print(li.index(8))
