@@ -31,14 +31,17 @@ class User:
         self.account_balance = 0
     def make_deposit(self, amount):
         self.account_balance += amount
+        return self
     def make_withdrawl(self, amount):
         self.account_balance -= amount
+        return self
     def display_user_balance(self):
         print(f'User: {self.name} \nBalance: ${self.account_balance}')
+        return self
     def transfer_money(self, other_user, amount):
         self.make_withdrawl(amount)
         other_user.make_deposit(amount)
-
+        return self
 patrick = User('Patrick', 'ptddev@protonmail.com')
 # print(patrick.email_address)
 # print(patrick.account_balance)
@@ -49,11 +52,9 @@ patrick = User('Patrick', 'ptddev@protonmail.com')
 # patrick.display_user_balance()
 nick = User('Nick', 'nick@nickmail.com')
 spencer = User('Spencer', 'spencer@spencer.com')
-patrick.make_deposit(1000)
-
-patrick.transfer_money(nick, 100)
-patrick.display_user_balance()
-nick.display_user_balance()
+patrick.make_deposit(100).make_deposit(100).make_deposit(100).display_user_balance().transfer_money(nick, 100).display_user_balance()
+nick.display_user_balance().transfer_money(spencer, 50).display_user_balance()
+spencer.display_user_balance()
 
 
 
