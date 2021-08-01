@@ -144,3 +144,4 @@ print(y)
 # 3
 # 5
 # 10
+print("enoyreve olleh"[::-1])
