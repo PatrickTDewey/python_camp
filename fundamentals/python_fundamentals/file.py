@@ -265,3 +265,71 @@ print(sorted(li))
 list_to_mess_with.extend(li)
 print(list_to_mess_with)
 print(li.index(8))
+
+
+# dictionaries
+context = {
+    'questions': [
+        { 'id': 1, 'content': 'Why is there a light in the fridge and not in the freezer?'},
+        { 'id': 2, 'content': 'Why don\'t sheep shrink when it rains?'},
+        { 'id': 3, 'content': 'Why are they called apartments when they are all stuck together?'},
+        { 'id': 4, 'content': 'Why do cars drive on the parkway and park on the driveway?'}
+    ]
+}
+another_dict = {
+    'name': 'Patrick',
+    'age': 28,
+    'height': "5'10",
+    'favorite_func': map
+}
+# cmp() removed in Python 3.x
+def add(a):
+    return a + a
+print(len(context))
+for x in context['questions']:
+    print(len(x['content']))
+
+    
+for x in context['questions']:
+    print(x['content'].upper())
+
+    
+for x in context['questions']:
+    print(type(x))
+my_copy = context.copy()
+context.clear()
+print(context)
+print(my_copy['questions'][0]['id'])
+
+print('questions' in my_copy)
+print(my_copy.items())
+my_copy.update(another_dict)
+print(my_copy)
+print(my_copy.values())
+
+my_list = ["abc", 123, "xyz"]
+for i in range(0, len(my_list)):
+    print(i, my_list[i])
+# output: 0 abc, 1 123, 2 xyz
+    
+# OR 
+    
+for v in my_list:
+    print(v)
+# output: abc, 123, xyz
+
+capitals = {"Washington":"Olympia","California":"Sacramento","Idaho":"Boise","Illinois":"Springfield","Texas":"Austin","Oklahoma":"Oklahoma City","Virginia":"Richmond"}
+# another way to iterate through the keys
+for key in capitals.keys():
+     print(key)
+# output: Washington, California, Idaho, Illinois, Texas, Oklahoma, Virginia
+#to iterate through the values
+print('values *********************')
+for val in capitals.values():
+     print(val)
+# output: Olympia, Sacramento, Boise, Springfield, Austin, Oklahoma City, Richmond
+#to iterate through both keys and values
+for key, val in capitals.items():
+     print(key, " = ", val)
+# output: Washington = Olympia, California = Sacramento, Idaho = Boise, etc
+
