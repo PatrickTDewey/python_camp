@@ -33,3 +33,12 @@ mult = 3
 for i in range(low_num, high_num + 1):
     if i % mult == 0:
         print(i)
+
+some_list = [1, 2, 4, 5, 6]
+some_list += [2]
+print(some_list)
+
+x = ''
+
+if not x:
+    print(True)
