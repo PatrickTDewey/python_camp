@@ -1,5 +1,0 @@
-{
-    "python.analysis.extraPaths": [
-        "./fundamentals/oop/dojo_pets"
-    ]
-}
