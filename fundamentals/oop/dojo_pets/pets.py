@@ -36,6 +36,18 @@ class Pet:
 class Dog(Pet):
     def __init__(self, name, tricks, type='Dog'):
         super().__init__(name, type, tricks)
+    def sleep(self):
+        super().sleep()
+        return self
+    def eat(self):
+        super().eat()
+        return self
+    def play(self):
+        super().play()
+        return self
+    def noise(self):
+        print('BARK BARK BARK')
+        return self
         
 if __name__ == "__main__":
     print("the file is being executed directly")
