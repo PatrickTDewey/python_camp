@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Some List Template</title>
+</head>
+<body>
+    <h1 class="header">Random Numbers</h1>
+    {% for number in random_numbers %}
+      <p>{{number}}</p>
+    {% endfor %}
+    {% for student in students %}
+        <p>{{ student['name'] }} - {{ student['age'] }}</p>    
+    {% endfor %}
+</body>
+</html>
