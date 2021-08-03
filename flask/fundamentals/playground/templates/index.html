@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="{{ url_for('static', filename = 'css/main.css')}}">
     <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
     <title>Playground Assignment</title>
+    <!-- <style>
+        .box {
+            background: {{ color }};
+        }
+    </style> -->
 </head>
 <body>
     <div class="wrapper">
@@ -16,7 +21,7 @@
             <div class="box"></div>
             {% else: %}
                 {% for i in range(number): %}
-                <div class="box {{color}}" id="{{i}}"></div>
+                <div class="box {{color}}" id="{{i}}" ></div>
                 {% endfor %}
         {% endif %}
     </div>
