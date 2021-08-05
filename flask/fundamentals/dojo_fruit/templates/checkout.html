@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/main.css')}}">
+    <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+    <title>Dojo Fruit Checkout</title>
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <h1>Thank You for your order</h1>
+            <p>We ordered {{ strawberry + raspberry + apple}} items for you and charged your student account on <span class="date-on-load"></span></p>
+        </header>
+        
+        <section class="main-section">
+            <h3 class="main-h3">You ordered:</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Fruit Name</th>
+                        <th>Quantity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Strawberry</td>
+                        <td>{{strawberry}}</td>
+                    </tr>
+                    <tr>
+                        <td>Raspberry</td>
+                        <td>{{raspberry}}</td>
+                    </tr>
+                    <tr>
+                        <td>Apple</td>
+                        <td>{{apple}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="info-section">
+            <table class="info-table">
+                <thead>
+                    <tr>
+                        <th>Your Information</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Name:</td>
+                        <td>{{form_data['name'] }}</td>
+                    </tr>
+                    <tr>
+                        <td>Your Student ID:</td>
+                        <td>{{ form_data['student-id'] }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</body>
+</html>
