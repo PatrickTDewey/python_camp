@@ -13,6 +13,8 @@ def get_checkout():
        strawberry = int(result['strawberry'])
        raspberry = int(result['raspberry'])
        apple = int(result['apple'])
+       count = apple + raspberry + strawberry
+       print(f"Charging {result['name']}for {count} fruits")
     return render_template('checkout.html', form_data = result, strawberry = strawberry, raspberry = raspberry, apple= apple)
 
 @app.route('/checkout')
