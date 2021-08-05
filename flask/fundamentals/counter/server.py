@@ -7,10 +7,11 @@ app.secret_key = "some_secritive_key"
 
 @app.route('/')
 def index_route():
+    
     if 'count' in session:
-        session['count'] += 1
+        session['count'] += int(1)
     else:
-        session['count'] = 1
+        session['count'] = int(1)
     
     return render_template('index.html')
 @app.route('/destroy_session')
@@ -27,6 +28,16 @@ def count_route():
 @app.route('/reset', methods=['POST'])
 def reset():
     return redirect('/destroy_session')
+
+@app.route('/step', methods=['POST'])
+def increment():
+    print(request.form['number'])
+    if not request.form['number']:
+        print(True)
+    else:
+        session['step'] = request.form['number']
+    print(session['step'])
+    return redirect('/')
 
 if __name__ == "__main__":
     app.run(debug=True)

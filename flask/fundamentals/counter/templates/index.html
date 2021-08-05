@@ -12,10 +12,16 @@
     <h1>Counter</h1>
     <p>{{ session['count']}} time(s)</p>
     <form action="/count" method="post">
-        <input type="submit" value="Count + 2">
+        <input type="submit" value="Count">
+    </form>
+    <form action="/step" method="post">
+        <label for="increment">Increment By:</label>
+        <input type="text" name="number" id="increment">
+        <input type="submit" value="increment">
     </form>
     <form action="/reset" method="post">
         <input type="submit" value="Reset">
+        
     </form>
 </body>
 </html>

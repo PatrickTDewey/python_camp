@@ -6,12 +6,8 @@ p {
     text-align: center;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+
 input {
     padding: 1em;
-    
+
 }
