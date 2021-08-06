@@ -6,21 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename = 'css/main.css')}}">
     <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <title>Ninja Gold</title>
 </head>
 <body>
     <div class="wrapper">
-        <div class="your-gold">
-            <h3>Your Gold:</h3>
-            <p class="your-gold-p">{{ session['gold'] }}</p>
+        <h1>Reach 300 Gold in Less Than 15 Attempts, Challenger</h1>
+        <div class="flex-top">
+            <div class="your-gold">
+                <h3>Your Gold:</h3>
+                <p class="your-gold-p">{{ session['gold'] }}</p>
+            </div>
+            <div class="your-gold">
+                <h3>Attempts:</h3>
+                <p class="your-gold-p">{{ session['tries'] }}</p>
+            </div>
         </div>
-        <div class="flex">
+        {% if session['switch'] == True%}
+        <div class="win/lose">
+            <h1>Hey You, you {{session['win/lose']}}</h1>
+        </div>
+        {% endif %}
+        <div class="flex {% if session['switch'] == True%}hide{% endif %}">
             <div class="farm box">
                 <h3>Farm</h3>
                 <p>(earns 10 - 20 golds)</p>
                 <form action="/process" method="post">
-                    <input type="submit" value="Find Gold">
+                    <input class="button" type="submit" value="Find Gold">
                     <input type="hidden" name="process" value='farm'>
                 </form>
             </div>
@@ -28,7 +39,7 @@
                 <h3>Cave</h3>
                 <p>(earns 5 - 10 golds)</p>
                 <form action="/process" method="post">
-                    <input type="submit" value="Find Gold">
+                    <input class="button" type="submit" value="Find Gold">
                     <input type="hidden" name="process" value='cave'>
                 </form>
             </div>
@@ -36,7 +47,7 @@
                 <h3>House</h3>
                 <p>(earns 2 - 5 gold)</p>
                 <form action="/process" method="post">
-                    <input type="submit" value="Find Gold">
+                    <input class="button" type="submit" value="Find Gold">
                     <input type="hidden" name="process" value='house'>
                 </form>
             </div>
@@ -44,18 +55,25 @@
                 <h3>Casino</h3>
                 <p>(earns/takes 0-50 gold)</p>
                 <form action="/process" method="post">
-                    <input type="submit" value="Find Gold">
+                    <input class="button" type="submit" value="Find Gold">
                     <input type="hidden" name="process" value='casino'>
                 </form>
             </div>
         </div>
         <div class="activity-log">
             {% if 'message' in session %}
-            {% for i in session['message'] %}
+            {% for i in session['message']|reverse %}
             {{ i | safe }}
             {% endfor %}
             {% endif %}
         </div>
+        {% if session['switch'] == True%}
+        <div class="reset-section">
+            <form action="/reset" method="post">
+                <input class="reset-button" type="submit" value="Reset">
+            </form>
+        </div>
+        {% endif %}
     </div>
 </body>
 </html>

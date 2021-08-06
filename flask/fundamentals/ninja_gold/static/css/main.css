@@ -1,4 +1,14 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+h1 {
+    text-align: center;
+}
 .flex {
+    display: flex;
+}
+
+.flex-top {
     display: flex;
 }
 
@@ -11,6 +21,46 @@
     text-align: center;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
     border-radius: 5px;
+}
+.button {
+    background: #E9C46A;
+    color: #394c69;
+    font-weight: 800;
+    padding: 10px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px;
+}
+.button:hover {
+    cursor: pointer;
+    background: white;
+    color: #394c69;
+    text-shadow: none;
+    transition: 100ms ease-in-out;
+    scale: 1.05;
+}
+.reset-section {
+    display: flex;
+    justify-content: center;
+}
+
+.reset-button {
+    margin-top: 10px;
+    background: #000000;
+    color: #ffffff;
+    font-weight: 800;
+    padding: 10px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px;
+}
+.reset-button:hover {
+    cursor: pointer;
+    background: white;
+    color: #000000;
+    text-shadow: none;
+    transition: cubic-bezier(0.165, 0.84, 0.44, 1) ;
+    scale: 1.05;
 }
 
 .activity-log {
@@ -30,14 +80,20 @@
 }
 
 .your-gold-p {
-    width: 5vw;
-    height: 2vw;
+    width: 100px;
+    height: 15px;
     border: 1px solid black;
     margin-left: 5px;
     padding: 5px 5px;
 }
 ul {
     list-style: none;
+}
+.hide {
+    display: none;
+}
+.show {
+    display: block;
 }
 .green {
     color: rgb(52, 158, 52);
