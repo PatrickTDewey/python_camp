@@ -9,12 +9,13 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <title>Number Game</title>
 </head>
-<body>
+<body class="bg-dark text-center">
     <div class="container bg-dark text-white p-3">
         <header>
             <h1>Welcome To The Great Number Game</h1>
             <p>I am thinking of a number between 1 and 100</p>
             <p>Take a guess!</p>
+            <p class="h4 text-white">attempts: {{ session['attempt'] }}</p>
         </header>
         <main>
             <div class="{{ session['class_check'] }} text-center p-3">
@@ -25,9 +26,9 @@
                 </form>
                 {% endif %} 
                 
-                <form action="/guess" method="post" class="form mt-5">
+                <form action="/guess" method="post" class="form mt-5 {%if session['switch'] == True %}{{ class_hidden}}{% endif %}">
                     <input type="number" name="number" id="number">
-                    <input class="btn-secondary"type="submit" value="Guess">
+                    <input class="btn-primary"type="submit" value="Guess">
                 </form>
                 <form action="/reset" method="post" class="mt-5">
                     <input type="submit" value="reset">

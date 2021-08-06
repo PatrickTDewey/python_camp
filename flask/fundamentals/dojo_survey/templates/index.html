@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/main.css')}}">
+    <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <title>Dojo Survey</title>
+</head>
+<body>
+    <div class="container">
+        <form action="/submit" method="post" class="bg-dark p-3 text-white">
+            <label class="form-label h3" for="name">Your Name:</label>
+            <input class="form-control mb-3" type="text" name="Name" id="name">
+            <select class="form-select mb-3" name="Location" id="location">
+                <option value="Online">Online</option>
+                <option value="Los angeles">Los Angeles</option>
+                <option value="San francisco">San Francisco</option>
+            </select>
+            <select class="form-select mb-3" name="Language" id="language">
+                <option value="Python">Python</option>
+                <option value="JavaScript">JavaScript</option>
+                <option value="Java">Java</option>
+            </select>
+            <label class="form-label h3" for="comment">Comment (optional):</label>
+            <textarea class="form-control mb-3" name="Comment" id="comment" cols="30" rows="10"></textarea>
+            <p class="h3 row p-2 ">Gender:</p>
+            <div class="row">
+                <label for="male" class="form-label">Male</label>
+                <input type="radio" name="Gender" id="male" value="Male"><br>
+
+                <label for="female" class="form-label">Female</label>
+                <input type="radio" name="Gender" id="female" value="Female"><br>
+
+                <label for="non-binary" class="form-label">Non-Binary</label>
+                <input type="radio" name="Gender" id="non-binary" value="Non-Binary">
+
+                <label for="other" class="form-label">Other</label>
+                <input type="radio" name="Gender" id="other" value="Other">
+
+                <label for="pnts" class="form-label">Prefer Not To Say</label>
+                <input class="radio"type="radio" name="Gender" id="pnts" value="Prefer Not To Say">
+            </div>
+            <div class="row">
+                <p class="h3">Subscribe to Newsletter?</p>
+                <label for="yes">Yes</label>
+                <input type="checkbox" name="Subscribe To Newsletter" id="yes" value="Yes">
+                <label for="yes">No</label>
+                <input type="checkbox" name="Subscribe To Newsletter" id="no" value="No">
+            </div>
+
+            <input type="submit" value="SUBMIT" class="btn-primary row m-1 p-2">
+        </form>
+    </div>
+</body>
+</html>
