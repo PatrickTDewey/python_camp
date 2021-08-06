@@ -1,0 +1,40 @@
+.flex-wrap {display: flex;}
+
+table {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    background: #210124;
+    padding: 5px 2em;
+    color: floralwhite;
+    margin-right: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+tr {
+    display: flex;
+    justify-content: space-between;
+    font-size: 2em;
+    padding: 10px;
+}
+select {
+    width: 5vw;
+}
+
+.purple-section {
+    flex: 1;
+    padding: 5px 2em;
+    background: #7272AB;
+    color: floralwhite;
+    font-weight: 600;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+}
+
+.info-section {
+    margin-top: 10px;
+}
+
+.info-table {
+    background: #7272AB;
+}

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Rendering Templates</title>
+</head>
+<body>
+    <h1>Hello Flask</h1>
+    <p>Phrase: {{ phrase }}</p>
+    <p>Steps: {{ steps }}</p>
+    {% for i in range(steps): %}
+      <p>{{ phrase }}</p>
+    {% endfor %}
+    {% if phrase == "hello": %}
+      <p>The phrase is hello</p>
+    {% endif %}
+</body>
+</html>
