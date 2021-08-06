@@ -1,0 +1,48 @@
+.flex {
+    display: flex;
+}
+
+.box {
+    color: white;
+    padding: 20px 10px;
+    flex: 1;
+    margin: 10px 5px;
+    background: #394c69;
+    text-align: center;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    border-radius: 5px;
+}
+
+.activity-log {
+    padding: 10px;
+    border: 1px solid black;
+    overflow: scroll;
+    margin: 0px 20px;
+    background: rgb(230, 230, 230);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    height: 200px;
+}
+
+.your-gold {
+    padding: 10px;
+    display: flex;
+    
+}
+
+.your-gold-p {
+    width: 5vw;
+    height: 2vw;
+    border: 1px solid black;
+    margin-left: 5px;
+    padding: 5px 5px;
+}
+ul {
+    list-style: none;
+}
+.green {
+    color: rgb(52, 158, 52);
+}
+
+.red {
+    color: #E76F51;
+}
