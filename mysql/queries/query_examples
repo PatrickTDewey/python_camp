@@ -1,0 +1,174 @@
+INSERT INTO table_name (column_name1, column_name2) 
+VALUES('column1_value', 'column2_value');
+
+SELECT * 
+FROM users;
+
+SELECT *  
+FROM follows;
+
+SELECT *
+FROM tweets;
+
+SELECT * 
+FROM users;
+
+SELECT first_name 
+FROM users;
+
+SELECT first_name as first, last_name as last
+FROM users;
+
+SELECT first_name
+FROM users
+WHERE id = 2;
+
+SELECT last_name
+FROM users
+WHERE id = 2 OR id = 3;
+
+SELECT *
+FROM users
+WHERE id > 2;
+
+SELECT *
+FROM users
+WHERE id <= 3;
+
+SELECT * 
+FROM users
+WHERE first_name LIKE "%e";
+
+SELECT * 
+FROM users
+WHERE first_name LIKE "K%";
+
+SELECT * 
+FROM users
+WHERE first_name NOT LIKE "K%";
+
+SELECT *
+FROM users
+ORDER BY birthday DESC;
+
+SELECT *
+FROM users
+ORDER BY birthday ASC;
+
+SELECT *
+FROM users
+WHERE first_name LIKE "%e"
+ORDER BY birthday DESC;
+
+SELECT first_name
+FROM users
+ORDER BY first_name;
+
+SELECT *
+FROM users
+LIMIT 3;
+
+SELECT *
+FROM users
+LIMIT 3
+OFFSET 2;
+
+SELECT *
+FROM users
+LIMIT 2,3;
+
+UPDATE table_name SET column_name1 = 'some_value', column_name2='another_value' WHERE condition(s)
+
+show databases;
+use "database";
+
+UPDATE users SET first_name = 'Kobe' WHERE id = 1;
+
+SELECT * from users WHERE id = 1;
+
+DELETE FROM table_name WHERE condition(s)
+
+SELECT CONCAT('Mr ', first_name, ' ', last_name) FROM users;
+
+SELECT CONCAT_WS(' ', 'Mr.', first_name, last_name) as full_name FROM  users;
+
+SELECT LENGTH(last_name) as last_len FROM users;
+
+SELECT LOWER(last_name) as last_lowercase FROM users;
+
+SELECT HOUR(created_at) as date_hour FROM users;
+
+SELECT DAYNAME(created_at) as day_name, created_at FROM users;
+
+SELECT MONTH(created_at) as month, created_at FROM users;
+
+SELECT YEAR(created_at) as year, created_at FROM users;
+
+SELECT NOW();
+
+SELECT DATE_FORMAT(created_at, '%a %M %Y %h:%m:%s %p') as date_formatted, created_at FROM users;
+
+
+SELECT clients.first_name, clients.last_name, billing.amount, billing.charged_datetime FROM clients JOIN billing ON clients.id = billing.clients_id;
+
+
+SELECT sites.domain_name, leads.first_name, leads.last_name
+    -> FROM sites
+    -> JOIN leads ON sites.id = leads.sites_id;
+
+SELECT clients.first_name, clients.last_name, sites.domain_name, leads.first_name as lead_name FROM clients JOIN sites ON clients.id = sites.clients_id JOIN leads ON sites.id = leads.sites_id;
+
+SELECT clients.first_name, clients.last_name, sites.domain_name FROM clients LEFT JOIN sites ON clients.id = sites.clients_id;
+
+
+SELECT clients.first_name, clients.last_name, SUM(billing.amount) FROM clients JOIN billing ON clients.id = billing.clients_id GROUP BY clients.id;
+
+
+SELECT GROUP_CONCAT(sites.domain_name) AS domains, clients.first_name, clients.last_name FROM clients JOIN sites ON clients.id = sites.clients_id GROUP BY clients.id;
+
+
+SELECT COUNT(leads.id), sites.domain_name FROM sites JOIN leads ON sites.id = leads.sites_id GROUP BY sites.id;
+
+
+mysql> SELECT DATABASE();
++------------+
+| DATABASE() |
++------------+
+| twitter    |
++------------+
+1 row in set (0.00 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| lead_gen_business  |
+| mysql              |
+| performance_schema |
+| sys                |
+| twitter            |
++--------------------+
+6 rows in set (0.00 sec)
+
+mysql> 
+
+SELECT users.first_name, tweets.tweet FROM users LEFT JOIN faves ON users.id = faves.user_id LEFT JOIN tweets ON faves.tweet_id = tweets.id WHERE users.id = 5;
+
+SELECT users.first_name as followed, users2.first_name as follower FROM users LEFT JOIN follows ON users.id = follows.followed_id LEFT JOIN users as users2 ON users2.id = follows.follower_id WHERE users.id = 1;
+
+
+mysql> SELECT * FROM users
+    -> WHERE users.id NOT IN (
+    -> SELECT follows.follower_id
+    -> FROM follows
+    -> WHERE followed_id =2)
+    -> AND users.id != 2;
++----+------------+-----------+--------------+------------+---------------------+---------------------+
+| id | first_name | last_name | handle       | birthday   | created_at          | updated_at          |
++----+------------+-----------+--------------+------------+---------------------+---------------------+
+|  1 | Kobe       | Bryant    | kobebryant   | 1978-08-23 | 2010-02-01 00:00:01 | 2011-07-01 00:00:01 |
+|  3 | Allen      | Iverson   | alleniverson | 1975-06-07 | 2005-09-01 00:00:01 | 2011-04-21 00:00:01 |
+|  5 | Rajon      | Rondo     | RajonRondo   | 1986-02-22 | 2001-02-01 00:00:01 | 2002-01-01 00:00:01 |
++----+------------+-----------+--------------+------------+---------------------+---------------------+
+3 rows in set (0.00 sec)
