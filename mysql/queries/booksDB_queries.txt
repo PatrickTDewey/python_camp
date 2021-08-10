@@ -1,0 +1,51 @@
+USE booksDB;
+
+SHOW TABLES;
+SHOW COLUMNS from authors;
+INSERT INTO authors(first_name, last_name, created_at, updated_at)
+VALUES('patrick', 'dewey', NOW(), NOW()),('Jimmy', 'buffet', NOW(), NOW()),('Richard', 'Dawkins', NOW(), NOW());
+
+INSERT INTO authors(first_name, last_name, created_at, updated_at)
+VALUES('Jane', 'Austin', NOW(), NOW()),('Emily', 'Dickinson', NOW(), NOW()),('Fyodor', 'Dostoevsky', NOW(), NOW()),('Lao', 'Tzu', NOW(), NOW()),('William', 'Shakespeare', NOW(), NOW());
+
+SELECT * FROM authors;
+
+SHOW COLUMNS FROM books;
+
+INSERT INTO books(title, page_num, created_at, updated_at)
+VALUES("C Sharp", 230, NOW(), NOW()), ("Java", 410, NOW(),NOW()), ("Python", 100, NOW(),NOW()), ("PHP", 235, NOW(),NOW()), ("RUBY", 80, NOW(),NOW());
+
+SELECT * FROM books;
+
+UPDATE books
+SET title = "C#" WHERE id = 1;
+
+UPDATE authors
+SET first_name ="Bill" WHERE id = 4;
+
+SHOW COLUMNS FROM favorite_books;
+
+INSERT INTO favorite_books(created_at, updated_at, book_id, author_id)
+VALUES (NOW(),NOW(), 1, 1),(NOW(),NOW(), 2, 1);
+
+INSERT INTO favorite_books(created_at, updated_at, book_id, author_id)
+VALUES (NOW(),NOW(), 1, 2),(NOW(),NOW(), 2, 2), (NOW(),NOW(), 3, 2);
+
+INSERT INTO favorite_books(created_at, updated_at, book_id, author_id)
+VALUES (NOW(),NOW(), 1, 3),(NOW(),NOW(), 2, 3), (NOW(),NOW(), 3, 3), (NOW(),NOW(), 4, 3);
+
+INSERT INTO favorite_books(created_at, updated_at, book_id, author_id)
+VALUES (NOW(),NOW(), 1, 4),(NOW(),NOW(), 2, 4), (NOW(),NOW(), 3, 4), (NOW(),NOW(), 4, 4),(NOW(),NOW(), 5, 4);
+SELECT * FROM favorite_books;
+
+SELECT authors.id, authors.first_name, authors.last_name, books.title as Favorited FROM authors JOIN favorite_books ON authors.id = favorite_books.author_id JOIN books ON books.id = favorite_books.book_id WHERE books.id = 2;
+
+
+DELETE FROM favorite_books WHERE author_id = 2;
+
+INSERT INTO favorite_books(created_at, updated_at, book_id, author_id)
+VALUES (NOW(),NOW(), 2, 5);
+
+SELECT authors.id, authors.first_name, authors.last_name, books.title as Favorited FROM authors JOIN favorite_books ON authors.id = favorite_books.author_id JOIN books ON books.id = favorite_books.book_id WHERE authors.id = 3;
+
+SELECT authors.id, authors.first_name, authors.last_name, books.title as Favorited FROM authors JOIN favorite_books ON authors.id = favorite_books.author_id JOIN books ON books.id = favorite_books.book_id WHERE books.id = 5;

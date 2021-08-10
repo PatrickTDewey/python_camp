@@ -1,0 +1,49 @@
+USE dojo_ninjas;
+
+SHOW COLUMNS from dojo_ninjas.dojos;
+
+INSERT INTO dojos(name, created_at, updated_at)
+VALUES('LA Dojo', NOW(), NOW());
+INSERT INTO dojos(name, created_at, updated_at)
+VALUES('MD Dojo', NOW(), NOW());
+INSERT INTO dojos(name, created_at, updated_at)
+VALUES('CA Dojo', NOW(), NOW());
+SELECT * FROM dojos;
+DELETE FROM dojos WHERE id <= 3;
+
+INSERT INTO dojos(name, created_at, updated_at)
+VALUES('New York Dojo', NOW(), NOW());
+INSERT INTO dojos(name, created_at, updated_at)
+VALUES('Chicago Dojo', NOW(), NOW());
+INSERT INTO dojos(name, created_at, updated_at)
+VALUES('Manhatthan Dojo', NOW(), NOW());
+
+SHOW COLUMNS FROM ninjas;
+
+INSERT INTO ninjas(first_name, last_name, age, created_at, updated_at, dojo_id)
+VALUES('Patrick', 'Dewey', 28, NOW(), NOW(), 4);
+INSERT INTO ninjas(first_name, last_name, age, created_at, updated_at, dojo_id)
+VALUES('James', 'Jameson', 80, NOW(), NOW(), 4);
+INSERT INTO ninjas(first_name, last_name, age, created_at, updated_at, dojo_id)
+VALUES('Oliver', 'Twist', 43, NOW(), NOW(), 4);
+
+INSERT INTO ninjas(first_name, last_name, age, created_at, updated_at, dojo_id)
+VALUES('Justin', 'Jordan', 21, NOW(), NOW(), 5);
+INSERT INTO ninjas(first_name, last_name, age, created_at, updated_at, dojo_id)
+VALUES('Johannsen', 'Johannasen', 32, NOW(), NOW(), 5);
+INSERT INTO ninjas(first_name, last_name, age, created_at, updated_at, dojo_id)
+VALUES('Michael', 'McAllister', 14, NOW(), NOW(), 5);
+
+INSERT INTO ninjas(first_name, last_name, age, created_at, updated_at, dojo_id)
+VALUES('Fred', 'Greg', 51, NOW(), NOW(), 6);
+INSERT INTO ninjas(first_name, last_name, age, created_at, updated_at, dojo_id)
+VALUES('Jordan', 'Joradani', 43, NOW(), NOW(), 6);
+INSERT INTO ninjas(first_name, last_name, age, created_at, updated_at, dojo_id)
+VALUES('Janet', 'Jane', 23, NOW(), NOW(), 6);
+
+SELECT ninjas.first_name AS first, ninjas.last_name AS last, dojos.name AS 'Dojo' FROM ninjas JOIN dojos ON dojos.id = ninjas.dojo_id WHERE ninjas.dojo_id = 4;
+
+SELECT ninjas.first_name AS first, ninjas.last_name AS last, dojos.name AS 'Dojo' FROM ninjas JOIN dojos ON dojos.id = ninjas.dojo_id WHERE ninjas.dojo_id = 6;
+
+SELECT ninjas.first_name AS first, ninjas.last_name AS last, dojos.name AS 'Dojo' FROM ninjas JOIN dojos ON dojos.id = ninjas.dojo_id WHERE ninjas.id = 6;
+
