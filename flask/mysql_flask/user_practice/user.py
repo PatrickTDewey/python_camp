@@ -21,7 +21,20 @@ class User:
         return users
     @classmethod
     def save(cls, data):
-        query = "INSERT INTO users (first_name, last_name, email, created_at, updated_at) VALUES (%(fname)s, %(lname)s, %(email)s, NOW(), NOW())"
+        query = "INSERT INTO users (first_name, last_name, email, created_at, updated_at) VALUES (%(fname)s, %(lname)s, %(email)s, NOW(), NOW());"
+        return connectToMySQL("usersDB").query_db(query, data)
+    @classmethod
+    def show(cls, data):
+        query = "SELECT * FROM users WHERE id = %(id)s;"
+        return connectToMySQL("usersDB").query_db(query, data)
+    @classmethod
+    def update(cls, data):
+        query = "UPDATE users SET first_name = %(fname)s, last_name = %(lname)s, email = %(email)s, updated_at = NOW() WHERE id= %(id)s;"
+        return connectToMySQL("usersDB").query_db(query, data)
+
+    @classmethod
+    def destroy(cls, data):
+        query = "DELETE FROM users WHERE id = %(id)s"
         return connectToMySQL("usersDB").query_db(query, data)
     def __repr__(self):
         return f"id: {self.id}, first_name: {self.first_name}, last_name: {self.last_name}, email: {self.email}, created_at {self.created_at}, updated_at: {self.updated_at}\n"
