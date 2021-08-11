@@ -1,0 +1,3 @@
+RuntimeError: 'cryptography' package is required for sha256_password or caching_sha2_password auth methods
+
+my version of mysql or flask requires the 'cryptography' package when passing a raw text password through myconnection.py
