@@ -15,7 +15,10 @@
 
 <body>
     <div class="container">
-        <h1 class="h1">User {{user[0].id}}</h1>
+        <div class="row">
+            <h1 class="h1 col">User {{user[0].id}}</h1>
+            <a class = "col" href="/users">Home</a>
+        </div>
         <div class="contaier-sm bg-dark text-white p-5">
             <div class="row">
                 <h3 class="h3 col">First Name:</h3>
@@ -34,7 +37,11 @@
                 <h3 class="h3 col">{{ user[0].created_at }}</h3>
             </div>
         </div>
-
+        <div class="row">
+            <a href="/users/{{user.id}}/edit">Edit</a>
+            <a href="/users/{{user.id}}/destroy">Delete</a>
+        </div>
+        
 
     </div>
 </body>

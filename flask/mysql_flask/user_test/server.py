@@ -16,8 +16,11 @@ def users():
         "email": request.form["email"]
     }
     User.save(data)
+    user_id = User.get_by_id(data)
+    print(user_id)
+    return redirect(f'/users/{user_id}')
 
-    return redirect('/users')
+
 @app.route('/users')
 def show():
     users = User.get_all()
@@ -44,7 +47,7 @@ def update():
         "email": request.form["email"]
     }
     edit_user = User.update(data)
-    return redirect('/users')
+    return redirect(f"/users/{data['id']}")
 
 @app.route('/users/<int:x>/destroy')
 def destroy(x):

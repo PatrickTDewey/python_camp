@@ -1,3 +1,7 @@
 *.pyc
 *.json
 .vscode/settings.json
+.DS_Store
+Pipfile
+Pipfile.lock
+mysqlconnection.py
