@@ -43,7 +43,7 @@ class Dojo:
     @classmethod
     def get_by_id(cls, data):
         result = []
-        query = "SELECT id FROM dojos WHERE first_name = %(fname)s AND last_name = %(lname)s"
+        query = "SELECT id FROM dojos WHERE title = %(fname)s AND last_name = %(lname)s"
         result = connectToMySQL(DATABASE).query_db(query,data)
         return result[0]['id']
     @classmethod
