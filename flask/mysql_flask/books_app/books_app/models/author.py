@@ -36,7 +36,11 @@ class Author:
                 "created_at": result["books.created_at"],
                 "updated_at": result["books.updated_at"],
             }
+            # if favorite_book not in this_author.favorite_books:
+            #     print('True')
             this_author.favorite_books.append(book.Book(favorite_book))
+            # else:
+            #     print('False')
         
         return this_author
     @classmethod

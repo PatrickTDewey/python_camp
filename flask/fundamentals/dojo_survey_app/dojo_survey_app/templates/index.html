@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <title>Dojos Index</title>
+</head>
+
+<body>
+
+    <div class="container mt-3">
+        {% with messages = get_flashed_messages() %}
+        <!-- declare a variable called messages -->
+        {% if messages %}
+        <!-- check if there are any messages -->
+        {% for message in messages %}
+        <!-- loop through the messages -->
+        <p>{{message}}</p> <!-- display each message in a paragraph tag -->
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <form action="/dojos/create" method="post" class="bg-dark p-3 text-white">
+            <label class="form-label h3" for="name">Your Name:</label>
+            <input class="form-control mb-3" type="text" name="name" id="name">
+            <select class="form-select mb-3" name="location" id="location">
+                <option value="Online">Online</option>
+                <option value="Los angeles">Los Angeles</option>
+                <option value="San francisco">San Francisco</option>
+            </select>
+            <select class="form-select mb-3" name="language" id="language">
+                <option value="Python">Python</option>
+                <option value="JavaScript">JavaScript</option>
+                <option value="Java">Java</option>
+            </select>
+            <label class="form-label h3" for="comment">Comment (optional):</label>
+            <textarea class="form-control mb-3" name="comment" id="comment" cols="30" rows="10"></textarea>
+
+            <input type="submit" value="SUBMIT" class="btn-primary row m-1 p-2">
+        </form>
+    </div>
+</body>
+
+</html>

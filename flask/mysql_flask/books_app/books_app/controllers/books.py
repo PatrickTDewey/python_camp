@@ -38,5 +38,5 @@ def book_favorite():
         "bid": request.form["book_id"],
         "aid": request.form["author_id"]
     }
-    Author.add_to_favorites(data)
-    return redirect(f"/books/{data['aid']}")
+    Book.add_author(data)
+    return redirect(f"/books/{data['bid']}")

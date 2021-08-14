@@ -32,7 +32,10 @@ class Book:
             }
             this_book.favorite_authors.append(author.Author(favorite_author))
         return this_book
-
+    @classmethod
+    def add_author(cls, data):
+        query = "INSERT INTO author_has_favorite_book(book_id, author_id) VALUES (%(bid)s,%(aid)s)"
+        return connectToMySQL(DATABASE).query_db(query, data)
     @classmethod
     def get_all(cls):
         query = "SELECT * FROM books;"
