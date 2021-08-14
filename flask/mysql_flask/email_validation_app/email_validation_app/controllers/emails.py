@@ -24,3 +24,11 @@ def add_email():
     email = Email.save(data)
     print(email)
     return redirect('/emails')
+
+@app.route('/email/<int:email_id>/destroy')
+def delete_email(email_id):
+    data = {
+        "id": email_id
+    }
+    Email.destroy(data)
+    return redirect('/emails')
