@@ -65,7 +65,14 @@ class User:
         for j in user.recipes:
             print(j)
         return user
-        
+    @ classmethod
+    def get_by_email(cls, data):
+        query='SELECT * FROM users WHERE email = %(email)s'
+        email=connectToMySQL(DATABASE).query_db(query, data)
+        if len(email) < 1:
+            return False
+        user=cls(email[0])
+        return user
 
     @ staticmethod
     def validate_registration(data):

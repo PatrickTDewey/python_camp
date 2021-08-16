@@ -89,7 +89,8 @@ def destroy(recipe_id):
     if 'user_id' not in session:
         return redirect('/')
     data = {
-        'recipe_id':recipe_id
+        'recipe_id':recipe_id,
+        'user_id': session['user_id']
     }
     Recipe.delete(data)
     return redirect('/users/dashboard')

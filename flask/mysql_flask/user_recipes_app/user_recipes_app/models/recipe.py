@@ -54,8 +54,10 @@ class Recipe:
         return connectToMySQL(DATABASE).query_db(query, data)
     @classmethod
     def delete(cls, data):
-        query = 'DELETE FROM user_has_recipes WHERE recipes.id = %(recipe_id)s;'
-        return connectToMySQL(DATABASE).query_db(query,data)
+        query = 'DELETE FROM user_has_recipes WHERE user_has_recipes.recipe_id = %(recipe_id)s AND user_has_recipes.user_id = %(user_id)s;'
+        connectToMySQL(DATABASE).query_db(query,data)
+        query = "DELETE FROM recipes WHERE recipes.id = %(recipe_id)s;"
+        return connectToMySQL(DATABASE).query_db(query, data)
     # @classmethod
     # def can_edit():
     #     pass
