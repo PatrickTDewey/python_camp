@@ -23,7 +23,8 @@ class User:
         self.password = data['password']
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
-        self.messages = []
+        self.messages = [[Message.Object, User.Object], ] # Message.Object instance, + , + ,+
+                                                          # {key: value }
 
     @classmethod
     def get_all(cls, data):
@@ -44,8 +45,6 @@ class User:
         user = cls(results[0])
         
         for result in results:
-        #    print(result)
-        #    make_user.messages.append(result)
             new_message = {
                 'id': result['messages.id'],
                 'content': result['content'],

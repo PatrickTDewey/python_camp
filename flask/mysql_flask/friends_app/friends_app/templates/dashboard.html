@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block title %}Friend Dashboard{% endblock %}
+{% block content %}
+<div class="row mt-5">
+    <div class="col">
+        <h3 class="h3">Friends:</h3>
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>User</th>
+                    <th>Friend</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>Amy</td>
+                    <td>Patrick</td>
+                </tr>
+                <tr>
+                    <td>Jerry</td>
+                    <td>kevin</td>
+                </tr>
+                <tr>
+                    <td>Amy</td>
+                    <td>jordan</td>
+                </tr>
+                <tr>
+                    <td>Amy</td>
+                    <td>Amanda</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col ms-3">
+        <form action="/friends/create" method="post">
+            <h3 class="h3">Add Friend</h3>
+            {% if other_users%}
+            <div class="mb-3">
+                <select name="friend" id="friend" class="form-select mt-5">
+                    {% for other_user in other_users %}
+                    <option value="{{ other_user.id }}">{{ other_user.first_name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="mb-3">
+                <input type="submit" value="Add Friend" class="btn-primary p-2">
+            </div>
+            {% endif %}
+        </form>
+    </div>
+</div>
+{% endblock %}

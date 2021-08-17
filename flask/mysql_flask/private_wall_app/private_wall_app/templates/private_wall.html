@@ -28,11 +28,11 @@
             </div>
         </div>
 
-        <h4 class=" h3 me-2 ">Time: <span class="date h3">Time:</span></h3>
+        <h4 class=" h3 me-2 ">Time: <span class="date h3"></span></h3>
             <div class="row">
                 <div class="col mt-5">
                     <div class="mb3">
-                        <h2 class="h3">3 Messages for you</h2>
+                        <h2 class="h3">{{ user_messages|length }} Messages for you</h2>
                     </div> 
                     {% if user_messages.messages %}
                     {% for message in user_messages.messages %}
