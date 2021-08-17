@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block title %}Friend Dashboard{% endblock %}
+{% block link1 %}{% endblock %}
 {% block content %}
 <div class="row mt-5">
     <div class="col">
@@ -13,22 +14,12 @@
             </thead>
 
             <tbody>
+                {% for relationship in all_friends %}
                 <tr>
-                    <td>Amy</td>
-                    <td>Patrick</td>
+                    <td>{{ relationship.user }}</td>
+                    <td>{{ relationship.friend }}</td>
                 </tr>
-                <tr>
-                    <td>Jerry</td>
-                    <td>kevin</td>
-                </tr>
-                <tr>
-                    <td>Amy</td>
-                    <td>jordan</td>
-                </tr>
-                <tr>
-                    <td>Amy</td>
-                    <td>Amanda</td>
-                </tr>
+                {% endfor %}
             </tbody>
         </table>
     </div>

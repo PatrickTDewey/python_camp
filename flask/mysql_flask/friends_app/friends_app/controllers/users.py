@@ -1,5 +1,6 @@
 from friends_app import app
 from friends_app.models.user import User
+from friends_app.models.friendship import Friendship
 from flask import request, render_template, redirect, session, flash
 from flask_bcrypt import Bcrypt
 
@@ -17,9 +18,11 @@ def user_dashboard():
     data = {
         'id': session['user_id']
     }
-    other_users = User.get_other_users(data)
+    other_users = User.get_potential_friends(data)
     user = User.get_by_id(data)
-    return render_template('dashboard.html', user = user, other_users = other_users)
+    all_friends = Friendship.get_all_friends()
+    print(all_friends)
+    return render_template('dashboard.html', user = user, other_users = other_users, all_friends = all_friends)
 
 # Action Routes
 @app.route('/users/register', methods=['POST'])
@@ -28,8 +31,8 @@ def user_register():
         print('Not valid, redirecting...')
         return redirect('/')
     data = {
-        'fn': request.form['first_name'],
-        'ln': request.form['last_name'],
+        'fn': request.form['fn'],
+        'ln': request.form['ln'],
         'email':request.form['email'],
         'password': request.form['password'],
         'conf': request.form['conf'],

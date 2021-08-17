@@ -29,8 +29,8 @@ class User:
             all_users.append(cls(result))
         return all_users
     @classmethod
-    def get_other_users(cls, data):
-        query = 'SELECT * FROM users WHERE users.id NOT IN(SELECT id FROM users WHERE id = %(id)s)'
+    def get_potential_friends(cls, data):
+        query = 'SELECT * FROM users WHERE users.id NOT IN ( SELECT friend_id FROM friendships WHERE user_id = %(id)s) AND users.id NOT LIKE %(id)s;'
         results = connectToMySQL(DATABASE).query_db(query, data)
         users = []
         for row in results:

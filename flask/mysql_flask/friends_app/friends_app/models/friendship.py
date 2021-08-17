@@ -14,8 +14,12 @@ class Friendship:
         query = 'INSERT INTO friendships(created_at, updated_at, user_id, friend_id) VALUES (NOW(), NOW(), %(user_id)s, %(friend_id)s);'
         return connectToMySQL(DATABASE).query_db(query,data)
     @classmethod
-    def get_users_friends(cls, data):
-        query = "SELECT * FROM friendships"
+    def get_all_friends(cls):
+        query = "SELECT users.first_name as user, friend.first_name as friend FROM users JOIN friendships ON users.id = friendships.user_id JOIN users as friend on friendships.friend_id = friend.id;"
+        result = connectToMySQL(DATABASE).query_db(query)
+        if not result:
+            return False
+        return result
         
     def __repr__(self):
         rep = f"created_at: {self.created_at}, updated_at: {self.updated_at}, user_id: {self.user_id}, friend_id: {self.friend_id}"
